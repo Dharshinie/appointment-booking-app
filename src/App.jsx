@@ -5,12 +5,12 @@ import AppointmentListPage from './pages/AppointmentListPage'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/appointments-list" element={<AppointmentListPage />} />
       </Routes>
-    </BrowserRouter>
+    
   )
 }

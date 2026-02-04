@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function BookingForm({ onAdd }) {
+export default function BookingForm({ onAdd, onSuccessNavigate }) {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
@@ -8,10 +8,12 @@ export default function BookingForm({ onAdd }) {
 
   const submit = (e) => {
     e.preventDefault()
+
     if (!name || !date || !time) {
-        alert('Please fill in all required fields.')
-        return
-    } 
+      alert('Please fill in all required fields.')
+      return
+    }
+
     const appt = {
       id: `${Date.now()}-${Math.floor(Math.random() * 10000)}`,
       name,
@@ -19,7 +21,14 @@ export default function BookingForm({ onAdd }) {
       time,
       service
     }
+
     onAdd(appt)
+
+    // ✅ Navigate to appointment list page
+    if (onSuccessNavigate) {
+      onSuccessNavigate()
+    }
+
     setName('')
     setDate('')
     setTime('')
@@ -30,26 +39,45 @@ export default function BookingForm({ onAdd }) {
     <form className="form" onSubmit={submit}>
       <div className="field">
         <label>Name</label>
-        <input value={name} onChange={e => setName(e.target.value)} placeholder="Client name" />
+        <input
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Client name"
+        />
       </div>
 
       <div className="field-row">
         <div className="field">
           <label>Date</label>
-          <input type="date" value={date} onChange={e => setDate(e.target.value)} />
+          <input
+            type="date"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+          />
         </div>
+
         <div className="field">
           <label>Time</label>
-          <input type="time" value={time} onChange={e => setTime(e.target.value)} />
+          <input
+            type="time"
+            value={time}
+            onChange={e => setTime(e.target.value)}
+          />
         </div>
       </div>
 
       <div className="field">
         <label>Service (optional)</label>
-        <input value={service} onChange={e => setService(e.target.value)} placeholder="e.g., Consultation" />
+        <input
+          value={service}
+          onChange={e => setService(e.target.value)}
+          placeholder="e.g., Consultation"
+        />
       </div>
 
-      <button type="submit" className="btn">Book Appointment</button>
+      <button type="submit" className="btn">
+        Book Appointment
+      </button>
     </form>
   )
 }

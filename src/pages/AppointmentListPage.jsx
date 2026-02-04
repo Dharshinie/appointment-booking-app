@@ -16,6 +16,7 @@ export default function AppointmentListPage() {
   return (
     <div className="page">
       <header className="header">
+        <img src="https://img.freepik.com/premium-vector/modern-beauty-salon-logo-sophisticated-female-profile-design-stylish-branding_396380-162.jpg" className="logo" alt="DD Salon Logo" />
         <h2 className="header-heading">Appointment List</h2>
       </header>
 

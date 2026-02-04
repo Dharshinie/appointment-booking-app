@@ -114,6 +114,17 @@ html, body {
   color: white;
   padding: 20px;
   text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding: 20px;
+}
+
+.logo{
+  height: 50px;
+  width:60px;
+  border-radius: 55px;
+  margin:15px;
 }
 
 /* MAIN CONTENT */
@@ -123,6 +134,8 @@ html, body {
   justify-content: center;
   align-items: center;
   padding: 40px 16px;
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/039/578/478/small/ai-generated-composition-of-beauty-and-make-up-cosmetics-on-pink-studio-background-photo.jpg");
+  background-size:cover;
 }
 
 /* CARD */
@@ -170,4 +183,217 @@ html, body {
 
 .header-heading{
     font-family: "Lucida Handwriting", cursive;
+}
+
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Lucida Handwriting", cursive;
+}
+
+/* ========== PAGE LAYOUT ========== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== HEADER ========== */
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.header-heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.hero-overlay p {
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+.hero-overlay span {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ========== MAIN LOGIN ========== */
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  background: #f9fafb;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ========== FORM ========== */
+.form1 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form1 input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form1 input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* ========== BUTTON ========== */
+.btn {
+  padding: 12px;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #4338ca;
+}
+
+/* ========== OFFERS ========== */
+.offers {
+  padding: 40px 16px;
+  background: rgb(252, 99, 183);
+  text-align: center;
+}
+
+.offers h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.offer-box {
+  padding: 20px;
+  border-radius: 12px;
+  background: #f9addb;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ========== FAQ ========== */
+.faq {
+  padding: 40px 16px;
+  background: #fbbcdf;
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq details {
+  background: rgb(244, 137, 207);
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ========== FOOTER ========== */
+
+
+.footer-links {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.footer-links span {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.footer-links span:hover {
+  opacity: 1;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .hero-overlay h1 {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 20px;
+  }
 }

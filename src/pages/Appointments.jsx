@@ -22,6 +22,7 @@ export default function Appointments() {
     <div className="page">
       {/* HEADER */}
       <header className="header">
+        <img src="https://img.freepik.com/premium-vector/modern-beauty-salon-logo-sophisticated-female-profile-design-stylish-branding_396380-162.jpg" className="logo" alt="DD Salon Logo" />
         <h2 className="header-heading">DD Salon Appointment Booking</h2>
       </header>
 

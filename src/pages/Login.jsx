@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import FranchiseSection from '../components/FranchiseSection'
+import AcademySection from '../components/AcademySection'
 import '../index.css'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [activeTab, setActiveTab] = useState('women')
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
@@ -18,10 +21,34 @@ export default function Login() {
     navigate('/appointments')
   }
 
+  const services = {
+    women: {
+      image:
+        'https://girliegirlsalon.com/wp-content/uploads/2021/04/AdobeStock_300855304.jpg',
+      list: [
+        'Hair Cut & Styling',
+        'Hair Coloring',
+        'Skin Care',
+        'Pre-wedding & Bridal'
+      ]
+    },
+    men: {
+      image:
+        'https://www.thebusinessads.com/Upload/Images/mdnmua0o.f1kIMG-20170630-WA0024.jpg',
+      list: [
+        'Hair Cut',
+        'Beard Styling',
+        'Facial',
+        'Head Massage'
+      ]
+    }
+  }
+
   return (
     <div className="page">
       {/* ================= HEADER ================= */}
-      <header className="header">
+
+      {/*<header className="header">
         <img
           src="https://img.freepik.com/premium-vector/modern-beauty-salon-logo-sophisticated-female-profile-design-stylish-branding_396380-162.jpg"
           className="logo"
@@ -29,6 +56,7 @@ export default function Login() {
         />
         <h2 className="header-heading">DD Salon Appointment Booking</h2>
       </header>
+      */}
 
       {/* ================= HERO IMAGE ================= */}
       <section className="hero">
@@ -37,6 +65,12 @@ export default function Login() {
           alt="Salon"
           className="hero-img"
         />
+        <img
+          src="https://img.freepik.com/premium-vector/modern-beauty-salon-logo-sophisticated-female-profile-design-stylish-branding_396380-162.jpg"
+          className="logo"
+          alt="DD Salon Logo"
+        />
+        <h2 className="header-heading">DD Salon Appointment Booking</h2>
         <div className="hero-overlay">
           <h1>DD Salon</h1>
           <p>Style • Care • Confidence</p>
@@ -44,7 +78,49 @@ export default function Login() {
         </div>
       </section>
 
-      {/* ================= LOGIN ================= */}
+      {/*service-card*/}
+      <section className="services">
+        <h2>Our Services</h2>
+
+        {/* Tabs */}
+        <div className="tabs">
+          <button
+            className={activeTab === 'men' ? 'active' : ''}
+            onClick={() => setActiveTab('men')}
+          >
+            Men
+          </button>
+          <button
+            className={activeTab === 'women' ? 'active' : ''}
+            onClick={() => setActiveTab('women')}
+          >
+            Women
+          </button>
+        </div>
+
+        {/* Card */}
+        <div className="service-card">
+          <img src={services[activeTab].image} alt="service" />
+
+          <div className="service-content">
+            <ul>
+              {services[activeTab].list.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
+
+            <button
+              className="btn"
+              onClick={() => navigate('/appointments')}
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+      </section>
+        <FranchiseSection />
+        <AcademySection />
+      {/* ================= LOGIN ================= 
       <main className="main">
         <div className="card">
           <h1 className="card-title">Login</h1>
@@ -66,7 +142,7 @@ export default function Login() {
             <button className="btn">Login</button>
           </form>
         </div>
-      </main>
+      </main> */}
 
       {/* ================= OFFERS ================= */}
       <section className="offers">

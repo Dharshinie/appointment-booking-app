@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
-export default function BookingForm({ onAdd, onSuccessNavigate }) {
+export default function BookingForm({ onAdd }) {
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [service, setService] = useState('')
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const submit = (e) => {
     e.preventDefault()
@@ -24,15 +25,29 @@ export default function BookingForm({ onAdd, onSuccessNavigate }) {
 
     onAdd(appt)
 
-    // ✅ Navigate to appointment list page
-    if (onSuccessNavigate) {
-      onSuccessNavigate()
-    }
+    // Show success message instead of navigating
+    setIsSubmitted(true)
 
+    // Reset form
     setName('')
     setDate('')
     setTime('')
     setService('')
+
+    // Hide success message after 5 seconds and reset
+    setTimeout(() => {
+      setIsSubmitted(false)
+    }, 8000)
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="success-message-container">
+        <div className="success-icon">✓</div>
+        <h2>Thank you for reaching us!</h2>
+        <p>We'll contact you soon!!</p>
+      </div>
+    )
   }
 
   return (

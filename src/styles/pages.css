@@ -1,0 +1,511 @@
+/* Pages Styling - Enhanced with Classic Design */
+
+/* General Page Styling */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f5f5 0%, #f9f9f9 100%);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  max-width: 100%;
+}
+
+.card {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.5s ease;
+  border: 1px solid rgba(238, 88, 158, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ee589e 0%, #db41db 50%, #ee589e 100%);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-title {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ee589e;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-content {
+  color: #333;
+  line-height: 1.7;
+}
+
+.card-content p {
+  margin: 16px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.card-content h3 {
+  color: #db41db;
+  margin-top: 32px;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  border-left: 3px solid #ee589e;
+  padding-left: 15px;
+}
+
+.card-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.card-content ul li {
+  padding: 12px 0 12px 30px;
+  position: relative;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.card-content ul li:hover {
+  color: #db41db;
+  padding-left: 35px;
+}
+
+.card-content ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 8px;
+  color: #ee589e;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* About Page Styling */
+.about-content {
+  max-width: 100%;
+}
+
+.about-content h3 {
+  color: #db41db;
+}
+
+.about-content ul li {
+  line-height: 1.8;
+}
+
+/* Contact Page Styling */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ead1dc 100%);
+  padding: 35px;
+  border-radius: 12px;
+  border-left: 5px solid #ee589e;
+  box-shadow: 0 8px 20px rgba(238, 88, 158, 0.08);
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  color: #ee589e;
+  font-size: 20px;
+  margin-bottom: 25px;
+  border: none;
+  padding-left: 0;
+}
+
+.contact-info p {
+  margin: 16px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.contact-info strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form .field label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 15px;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.contact-form .field input,
+.contact-form .field textarea {
+  padding: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: "Lucida Handwriting", cursive;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.contact-form .field input:focus,
+.contact-form .field textarea:focus {
+  outline: none;
+  border-color: #ee589e;
+  box-shadow: 0 0 0 4px rgba(238, 88, 158, 0.1);
+  background: white;
+}
+
+.contact-form .field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Career Page Styling */
+.career-content {
+  max-width: 100%;
+}
+
+.intro-text {
+  font-size: 16px;
+  color: #555;
+  background: linear-gradient(135deg, #f0f5ff 0%, #fff5f7 100%);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 5px solid #ee589e;
+  margin-bottom: 35px;
+  box-shadow: 0 6px 15px rgba(238, 88, 158, 0.08);
+  font-weight: 500;
+}
+
+.job-listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.job-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff5f7 100%);
+  padding: 28px;
+  border-radius: 12px;
+  border: 2px solid #ead1dc;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.job-card:hover {
+  box-shadow: 0 12px 35px rgba(238, 88, 158, 0.25);
+  transform: translateY(-8px);
+  border-color: #ee589e;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.job-header h4 {
+  margin: 0;
+  color: #ee589e;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.job-location {
+  background: linear-gradient(135deg, #ee589e 0%, #db41db 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(238, 88, 158, 0.3);
+}
+
+.job-department {
+  color: #db41db;
+  font-size: 14px;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+.job-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin: 16px 0 18px 0;
+}
+
+/* Pricing Page Styling */
+.pricing-content {
+  max-width: 100%;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin: 35px 0;
+}
+
+.pricing-category {
+  background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+  padding: 32px;
+  border-radius: 14px;
+  border: 2px solid #ead1dc;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ee589e 0%, #db41db 100%);
+}
+
+.pricing-category:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(238, 88, 158, 0.2);
+  border-color: #ee589e;
+}
+
+.pricing-category h3 {
+  margin-top: 8px;
+  color: #ee589e;
+  border-bottom: 2px solid #ead1dc;
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(238, 88, 158, 0.15);
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item:hover {
+  padding-left: 5px;
+  color: #db41db;
+}
+
+.service-name {
+  color: #333;
+  font-weight: 500;
+}
+
+.service-price {
+  color: #ee589e;
+  font-weight: bold;
+  font-size: 17px;
+  background: rgba(238, 88, 158, 0.1);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.pricing-notes {
+  background: linear-gradient(135deg, #fffacd 0%, #fff9e6 100%);
+  padding: 28px;
+  border-radius: 12px;
+  border-left: 5px solid #db41db;
+  margin: 35px 0;
+  box-shadow: 0 8px 20px rgba(219, 65, 219, 0.1);
+}
+
+.pricing-notes h3 {
+  margin-top: 0;
+  border: none;
+  padding-left: 0;
+  color: #db41db;
+}
+
+.pricing-notes ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.pricing-notes ul li {
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 15px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.pricing-notes ul li:before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #db41db;
+  font-size: 18px;
+}
+
+/* Button Styling */
+.btn {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #ee589e 0%, #db41db 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: "Lucida Handwriting", cursive;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(238, 88, 158, 0.3);
+  display: inline-block;
+  width: fit-content;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(238, 88, 158, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.btn-small {
+  padding: 10px 18px;
+  font-size: 13px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    padding: 35px 25px;
+  }
+
+  .card-title {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .job-header {
+    flex-direction: column;
+  }
+
+  .job-location {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main {
+    padding: 35px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 25px 18px;
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+    margin-top: 24px;
+    margin-bottom: 15px;
+  }
+
+  .main {
+    padding: 25px 12px;
+  }
+}

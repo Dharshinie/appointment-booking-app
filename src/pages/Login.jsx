@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FranchiseSection from '../components/FranchiseSection'
 import AcademySection from '../components/AcademySection'
+import Footer from '../components/Footer'
 import '../index.css'
+import '../styles/footer.css'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -176,15 +178,7 @@ export default function Login() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="footer">
-        <p>© 2026 DD Salon Booking App</p>
-        <div className="footer-links">
-          <span>About Us</span>
-          <span>Contact</span>
-          <span>Privacy Policy</span>
-          <span>Terms & Conditions</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

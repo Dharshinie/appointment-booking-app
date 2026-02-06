@@ -1,0 +1,77 @@
+mutation SeedDatabase @transaction @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  user_insertMany(data: [
+    {
+      id: "67c49ab9-979d-47a3-b7fc-389498f15a55",
+      displayName: "Alice Smith",
+      email: "alice.smith@example.com",
+      userType: "customer",
+      createdAt: "2024-04-26T10:00:00Z"
+    },
+    {
+      id: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      displayName: "Bob Johnson",
+      email: "bob.johnson@example.com",
+      userType: "service_provider",
+      createdAt: "2024-04-26T11:00:00Z"
+    }
+  ])
+  serviceProvider_insertMany(data: [
+    {
+      id: "11223344-5566-7788-9900-aabbccddeeff",
+      userId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Bob's Burgers",
+      address: "123 Main St",
+      city: "Anytown",
+      state: "CA",
+      zipCode: "91234",
+      createdAt: "2024-04-26T12:00:00Z"
+    }
+  ])
+  service_insertMany(data: [
+    {
+      id: "fedcba98-7654-3210-0fed-cba987654321",
+      serviceProviderId: "11223344-5566-7788-9900-aabbccddeeff",
+      name: "Burger of the Month",
+      description: "A special burger each month",
+      durationMinutes: 30,
+      price: 9.99,
+      createdAt: "2024-04-26T13:00:00Z"
+    }
+  ])
+  availability_insertMany(data: [
+    {
+      id: "99887766-5544-3322-1100-ffeeeeddccbbaa",
+      serviceProviderId: "11223344-5566-7788-9900-aabbccddeeff",
+      date: "2024-05-01",
+      startTime: "12:00",
+      endTime: "13:00",
+      isBooked: false,
+      createdAt: "2024-04-26T14:00:00Z"
+    }
+  ])
+  appointment_insertMany(data: [
+    {
+      id: "22334455-6677-8899-0011-bbccddaaffee",
+      userId: "67c49ab9-979d-47a3-b7fc-389498f15a55",
+      serviceProviderId: "11223344-5566-7788-9900-aabbccddeeff",
+      serviceId: "fedcba98-7654-3210-0fed-cba987654321",
+      availabilityId: "99887766-5544-3322-1100-ffeeeeddccbbaa",
+      appointmentDate: "2024-05-01",
+      appointmentStartTime: "12:00",
+      appointmentEndTime: "12:30",
+      status: "scheduled",
+      createdAt: "2024-04-26T15:00:00Z"
+    }
+  ])
+  review_insertMany(data: [
+    {
+      id: "33445566-7788-9900-1122-ccddeeff0011",
+      userId: "67c49ab9-979d-47a3-b7fc-389498f15a55",
+      serviceProviderId: "11223344-5566-7788-9900-aabbccddeeff",
+      appointmentId: "22334455-6677-8899-0011-bbccddaaffee",
+      rating: 5,
+      comment: "Great burger!",
+      createdAt: "2024-04-26T16:00:00Z"
+    }
+  ])
+}

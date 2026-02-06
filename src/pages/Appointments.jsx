@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import BookingForm from '../components/BookingForm'
 import Footer from '../components/Footer'
 import { loadAppointments, saveAppointments } from '../utils/storage'
+import { addAppointmentToFirebase } from '../services/appointmentService'
 import '../index.css'
 import '../styles/pages.css'
 import '../styles/footer.css'
@@ -13,8 +14,19 @@ export default function Appointments() {
     saveAppointments(appointments)
   }, [appointments])
 
-  const addAppointment = (appt) =>
-    setAppointments(prev => [...prev, appt])
+  const addAppointment = async (appt) => {
+    try {
+      // Save to Firebase
+      const docId = await addAppointmentToFirebase(appt)
+      
+      // Also save locally
+      setAppointments(prev => [...prev, { ...appt, id: docId }])
+    } catch (error) {
+      console.error('Error saving appointment:', error)
+      // Fallback to local storage if Firebase fails
+      setAppointments(prev => [...prev, appt])
+    }
+  }
 
   return (
     <div className="page">

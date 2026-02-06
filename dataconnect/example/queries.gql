@@ -1,0 +1,42 @@
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: {
+    displayName: "New User",
+    email: "newuser@example.com",
+    userType: "customer",
+    createdAt_expr: "request.time"
+  })
+}
+
+query ListServiceProviders @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  serviceProviders {
+    id
+    name
+    address
+    city
+    state
+    zipCode
+  }
+}
+
+mutation UpdateAvailability($id: UUID!, $isBooked: Boolean!) @auth(level: USER) {
+  availability_update(
+    id: $id,
+    data: {
+      isBooked: $isBooked
+    }
+  )
+}
+
+query GetMyReviews @auth(level: USER) {
+  reviews(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    comment
+    rating
+    serviceProvider {
+      name
+    }
+    appointment {
+      appointmentDate
+    }
+  }
+}
